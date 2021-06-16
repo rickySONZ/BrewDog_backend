@@ -3,5 +3,5 @@ class Brewery < ApplicationRecord
     has_many :favorites
     has_many :users, through: :favorites
 
-    validates uniqueness, uid: true
+    validates :uid, uniqueness: true
 end

@@ -9,24 +9,18 @@ class Api < ApplicationRecord
         # The second check will check and make sure there is a longitude and latitude
         # If that is not present than we will use the Geocoder gem to pull those points from street address
 
-#         id: 9172,
-# obdb_id: "boston-beer-co-boston-2",
+# id: 9172,
 # name: "Boston Beer Co",
 # brewery_type: "micro",
 # street: "30 Germania St Ste 1",
-# address_2: null,
-# address_3: null,
 # city: "Boston",
 # state: "Massachusetts",
-# county_province: null,
 # postal_code: "02130-2312",
 # country: "United States",
 # longitude: null,
 # latitude: null,
 # phone: "6173685000",
 # website_url: "http://www.samueladams.com",
-# updated_at: "2018-08-11T00:00:00.000Z",
-# created_at: "2018-07-24T00:00:00.000Z"
 
     end
 end
