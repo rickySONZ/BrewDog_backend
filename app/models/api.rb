@@ -2,8 +2,8 @@ require 'httparty'
 
 class Api < ApplicationRecord
 
-    def self.pull_searched_breweries
-        @url = "https://api.openbrewerydb.org/breweries/search?query=y"
+    def self.pull_searched_breweries(e)
+        @url = "https://api.openbrewerydb.org/breweries/search?query=#{e}"
         brewery_array = HTTParty.get(@url)
         brewery_array.each do |brewery_hash|
             b = Brewery.new(:name => brewery_hash["name"],
