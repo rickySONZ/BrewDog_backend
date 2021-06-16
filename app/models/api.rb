@@ -3,10 +3,10 @@ require 'httparty'
 class Api < ApplicationRecord
 
     def self.pull_searched_breweries
-        @url = "https://api.openbrewerydb.org/breweries/search?query=boston&massachusetts"
+        @url = "https://api.openbrewerydb.org/breweries/search?query=y"
         brewery_array = HTTParty.get(@url)
         brewery_array.each do |brewery_hash|
-            Brewery.create(:name => brewery_hash["name"],
+            b = Brewery.new(:name => brewery_hash["name"],
                  :address => brewery_hash["street"],
                  :city => brewery_hash["city"],
                  :state => brewery_hash["state"],
@@ -17,6 +17,16 @@ class Api < ApplicationRecord
                  :uid => brewery_hash["id"],
                  :url => brewery_hash["website_url"]
             )
+            if b.longitude == nil || b.latitude == nil
+                result = Geocoder.search("#{brewery_hash["address"]} #{brewery_hash["city"]}, #{brewery_hash["state"]}")
+                coord = result.first.coordinates
+                b.latitude = coord[0]
+                b.longitude = coord[1]
+            end
+
+            #Another conditional that will handle not saving
+            #If the city and state dont match the search term explicitly
+            b.save
         end
         # Thinking of basically pulling from this API and then creating new breweries
         # New breweries would have two functions called on them before instantiation
@@ -24,19 +34,6 @@ class Api < ApplicationRecord
         # This is necessary because the API will pull by any keyword so itll look for any attribute to equal term
         # The second check will check and make sure there is a longitude and latitude
         # If that is not present than we will use the Geocoder gem to pull those points from street address
-
-# id: 9172,
-# name: "Boston Beer Co",
-# brewery_type: "micro",
-# street: "30 Germania St Ste 1",
-# city: "Boston",
-# state: "Massachusetts",
-# postal_code: "02130-2312",
-# country: "United States",
-# longitude: null,
-# latitude: null,
-# phone: "6173685000",
-# website_url: "http://www.samueladams.com",
 
     end
 end
