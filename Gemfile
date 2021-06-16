@@ -46,3 +46,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "geocoder", "~> 1.6"
 
 gem "httparty", "~> 0.18.1"
+
+gem "jwt", "~> 2.2"
