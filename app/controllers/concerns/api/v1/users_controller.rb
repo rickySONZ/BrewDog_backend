@@ -15,6 +15,17 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
+  def profile
+    render json: {
+      user: {
+        id: current_user.id,
+        username: current_user.username,
+        email: current_user.email,
+        password: current_user.password
+      }, status: :accepted
+    }
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)

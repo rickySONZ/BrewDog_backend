@@ -1,17 +1,21 @@
 class Api::V1::SessionsController < ApplicationController
 
     def create
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
+        @user = User.find_by(username: params[:user][:username])
+    
+        if @user && @user.authenticate(params[:user][:password])
+            @token = encode_token(user_id: @user.id)
             render json: {
-                id: user.id,
+                user: {
+                id: @user.id,
                 status: 200,
-                username: user.username,
-                password: user.password,
+                email: @user.email,
+                username: @user.username,
+                password: @user.password,
                 logged_in: true
-            }
-        elsif user
+            },
+        token: @token}
+        elsif @user
             render json: {
                 status: 500,
                 error: "Wrong Password"
