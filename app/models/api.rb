@@ -19,9 +19,11 @@ class Api < ApplicationRecord
             )
             if b.longitude == nil || b.latitude == nil
                 result = Geocoder.search("#{brewery_hash["address"]} #{brewery_hash["city"]}, #{brewery_hash["state"]}")
+                if result
                 coord = result.first.coordinates
                 b.latitude = coord[0]
                 b.longitude = coord[1]
+                end
             end
 
             #Another conditional that will handle not saving
