@@ -21,7 +21,8 @@ class Api::V1::UsersController < ApplicationController
         id: current_user.id,
         username: current_user.username,
         email: current_user.email,
-        password: current_user.password
+        password: current_user.password,
+        logged_in: true
       }, status: :accepted
     }
   end
@@ -38,7 +39,8 @@ class Api::V1::UsersController < ApplicationController
         user: {
           username: @user.username,
           email: @user.email,
-          password: @user.password
+          password: @user.password,
+          logged_in: true
         },
         token: @token
       }
