@@ -17,7 +17,7 @@ class Api < ApplicationRecord
                  :uid => brewery_hash["id"],
                  :url => brewery_hash["website_url"]
             )
-            if b.longitude == nil || b.latitude == nil
+            if b.longitude == nil || b.latitude == nil 
                 result = Geocoder.search("#{brewery_hash["address"]} #{brewery_hash["city"]}, #{brewery_hash["state"]}")
                 if result
                 coord = result.first.coordinates
