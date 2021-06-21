@@ -16,15 +16,19 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-    render json: {
-      user: {
-        id: current_user.id,
-        username: current_user.username,
-        email: current_user.email,
-        password: current_user.password,
-        logged_in: true
-      }, status: :accepted
-    }
+    if logged_in
+      render json: {
+        user: {
+          id: current_user.id,
+          username: current_user.username,
+          email: current_user.email,
+          password: current_user.password,
+          logged_in: true
+        }, status: :accepted
+      }
+    else
+      render json: current_user.errors
+    end
   end
 
   # POST /users
@@ -37,6 +41,7 @@ class Api::V1::UsersController < ApplicationController
 
       render json: {
         user: {
+          id: @user.id,
           username: @user.username,
           email: @user.email,
           password: @user.password,
