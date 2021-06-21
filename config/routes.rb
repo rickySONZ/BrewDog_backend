@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       post 'login', to: 'sessions#create'
       get '/profile', to: 'users#profile'
 
+      get '/logout', to: 'sessions#logout'
+
       resources :breweries
 
       resources :users do
