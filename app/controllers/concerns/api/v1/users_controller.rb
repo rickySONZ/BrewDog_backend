@@ -24,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
           email: current_user.email,
           password: current_user.password,
           logged_in: true
-        }, status: :accepted
+        }, status: 200
       }
     else
       render json: current_user.errors
@@ -45,8 +45,9 @@ class Api::V1::UsersController < ApplicationController
           username: @user.username,
           email: @user.email,
           password: @user.password,
-          logged_in: true
+          logged_in: true,
         },
+        status: 200,
         token: @token
       }
     else

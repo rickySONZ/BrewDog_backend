@@ -8,13 +8,13 @@ class Api::V1::SessionsController < ApplicationController
             render json: {
                 user: {
                 id: @user.id,
-                status: 200,
                 email: @user.email,
                 username: @user.username,
                 password: @user.password,
                 logged_in: true
             },
-        token: @token}
+        token: @token,
+    status: 200}
         elsif @user
             render json: {
                 status: 500,
