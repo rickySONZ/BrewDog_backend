@@ -3,7 +3,8 @@ class Api::V1::FavoritesController < ApplicationController
 
   # GET /favorites
   def index
-    @favorites = Favorite.all
+
+    @favorites = Favorite.where(user_id: params[:user_id])
 
     render json: @favorites
   end
