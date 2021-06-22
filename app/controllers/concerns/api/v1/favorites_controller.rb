@@ -36,7 +36,9 @@ class Api::V1::FavoritesController < ApplicationController
 
   # DELETE /favorites/1
   def destroy
+    render json: @favorite
     @favorite.destroy
+   
   end
 
   private
