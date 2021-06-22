@@ -6,7 +6,7 @@ class Api::V1::FavoritesController < ApplicationController
 
     @favorites = Favorite.where(user_id: params[:user_id])
 
-    render json: @favorites
+    render json: @favorites.to_json(include: [:brewery])
   end
 
   # GET /favorites/1
