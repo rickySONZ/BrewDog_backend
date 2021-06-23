@@ -16,10 +16,11 @@ class Api::V1::FavoritesController < ApplicationController
 
   # POST /favorites
   def create
-    @favorite = Favorite.new(favorite_params)
+    
+    @favorite = Favorite.new(brewery_id: params[:favorite], user_id: params[:user_id])
 
     if @favorite.save
-      render json: @favorite, status: :created, location: @favorite
+      render json: @favorite, status: :created
     else
       render json: @favorite.errors, status: :unprocessable_entity
     end
