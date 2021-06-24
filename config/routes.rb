@@ -9,8 +9,7 @@ Rails.application.routes.draw do
       get '/logout', to: 'sessions#logout'
 
       resources :breweries
-      resources :caps
-
+    
       get '/capcheck', to: 'caps#update_cap'
 
       resources :users do
