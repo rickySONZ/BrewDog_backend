@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :caps
   namespace :api do
     namespace :v1 do
 
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
       get '/logout', to: 'sessions#logout'
 
       resources :breweries
+      resources :caps
+
+      get '/capcheck', to: 'caps#update_cap'
 
       resources :users do
         resources :favorites

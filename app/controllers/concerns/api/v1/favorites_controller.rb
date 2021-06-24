@@ -11,6 +11,7 @@ class Api::V1::FavoritesController < ApplicationController
 
   # GET /favorites/1
   def show
+   
     render json: @favorite
   end
 
