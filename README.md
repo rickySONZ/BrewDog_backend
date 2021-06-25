@@ -1,24 +1,24 @@
-# BrewDog
+# BrewDog Back End
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Front end repository is hosted on this link https://github.com/rickySONZ/BrewDog_frontend.
 
-Things you may want to cover:
+This project was created with Ruby on Rails (API Only)
 
-* Ruby version
+Ruby version 2.6.1
 
-* System dependencies
+Hosted on http://localhost:8080/api/v1
 
-* Configuration
+## Usage
 
-* Database creation
+To launch run ```rails s``` or ```rails start```
 
-* Database initialization
+Video Demonstration posted here https://www.loom.com/share/2040592c7ae4404eb93f84d661c22f42
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Pull requests and bug reports are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Deployment instructions
+Please make sure to update tests as appropriate.
 
-* ...
+## License
+MIT
