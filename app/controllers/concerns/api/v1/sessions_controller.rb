@@ -18,12 +18,12 @@ class Api::V1::SessionsController < ApplicationController
     status: 200}
         elsif @user
             render json: {
-                status: 500,
-                error: "Wrong Password"
+                status: :unprocessable_entity,
+                error: "Password Is Incorrect"
             }
         else
             render json: {
-                status: 500,
+                status: :unprocessable_entity,
                 error: "Username Not Found"
             }
         end
