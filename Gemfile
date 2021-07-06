@@ -53,3 +53,5 @@ gem "jwt", "~> 2.2"
 gem "pry", "~> 0.14.1"
 
 gem "active_model_serializers", "~> 0.10.7"
+
+gem 'pg'
