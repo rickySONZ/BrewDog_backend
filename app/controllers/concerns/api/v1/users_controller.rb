@@ -16,7 +16,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-    if logged_in
+
+    if current_user
       render json: {
         user: {
           id: current_user.id,
@@ -27,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
         }, status: 200
       }
     else
-      render json: :unprocessable_entity
+      render json: current_user.errors
     end
   end
 

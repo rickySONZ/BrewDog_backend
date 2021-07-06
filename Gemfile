@@ -51,4 +51,4 @@ gem "jwt", "~> 2.2"
 
 gem "pry", "~> 0.14.1"
 
-
+gem 'dotenv'
