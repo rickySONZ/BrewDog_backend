@@ -38,7 +38,7 @@ group :development do
 end
 
 group :production do
-
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -54,4 +54,3 @@ gem "pry", "~> 0.14.1"
 
 gem "active_model_serializers", "~> 0.10.7"
 
-gem 'pg'
