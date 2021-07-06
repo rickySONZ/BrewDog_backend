@@ -27,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
         }, status: 200
       }
     else
-      render json: current_user.errors
+      render json: :unprocessable_entity
     end
   end
 
