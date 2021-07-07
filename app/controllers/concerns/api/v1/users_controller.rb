@@ -16,7 +16,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
-
     if logged_in
       render json: {
         user: {

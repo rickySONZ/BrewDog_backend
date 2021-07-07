@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Api.pull_Searched_brewerues('new_york')
+Api.pull_searched_breweries('new_york')
 # Api.pull_searched_breweries('alabama')
 # Api.pull_searched_breweries('arkansas')
 # Api.pull_searched_breweries('arizona')
