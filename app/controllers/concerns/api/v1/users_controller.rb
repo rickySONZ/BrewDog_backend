@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
 
   def profile
 
-    if current_user
+    if logged_in
       render json: {
         user: {
           id: current_user.id,
