@@ -26,17 +26,8 @@ class Api < ApplicationRecord
                     b.longitude = coord[1]
                 end
             end
-
-            #Another conditional that will handle not saving
-            #If the city and state dont match the search term explicitly
+            
             b.save
         end
-        # Thinking of basically pulling from this API and then creating new breweries
-        # New breweries would have two functions called on them before instantiation
-        # First it would validate that the country and state are the same as the search term
-        # This is necessary because the API will pull by any keyword so itll look for any attribute to equal term
-        # The second check will check and make sure there is a longitude and latitude
-        # If that is not present than we will use the Geocoder gem to pull those points from street address
-
     end
 end

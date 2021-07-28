@@ -4,7 +4,6 @@ class Api::V1::BreweriesController < ApplicationController
   # GET /breweries
   def index
     @breweries = Brewery.all
-
     render json: @breweries
   end
 
@@ -16,7 +15,6 @@ class Api::V1::BreweriesController < ApplicationController
   # POST /breweries
   def create
     @brewery = Brewery.new(brewery_params)
-
     if @brewery.save
       render json: @brewery, status: :created, location: @brewery
     else
