@@ -3,6 +3,8 @@ class Brewery < ApplicationRecord
     has_many :favorites
     has_many :users, through: :favorites
     validates :uid, uniqueness: true
+    validates :name, presence: true
+    
 
     ## Methods for fixing breweries without lat and long
     def fix_latitude()
